@@ -12,6 +12,8 @@ body{
   width: 50%;
   border-radius: 4px;
   box-shadow: 2px 2px 2px black;
+  padding: 10px;
+  margin: 10px;
 }
 .log{
   background-color: rgb(152, 143, 255);
