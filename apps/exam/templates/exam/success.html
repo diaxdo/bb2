@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {%load staticfiles%}
+        <link rel="stylesheet" type="text/css" href={%static "exam/css/main.css"%}>
+        <title>Success</title>
+    </head>
+    <body>
+        <p>Welcome {{alias}}!</p>
+        <div>
+          <h4>{{times_poked}} people poked you!</h4>
+          <ul class="list-group">
+          {% for p in all_pokes_from_people %}
+          <li class="list-group-item">{{ p.poker.alias }} poked you {{ p.count }} times.</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <hr>
+      <div class="row">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Alias</th>
+              <th>Email Address</th>
+              <th>Poke History</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <h3>People you may want to poke:</h3>
+          <tbody>
+                      {% for user in users %}
+                      <tr>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.alias}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.poke_history}}</td>
+                        <td>
+                          <form action="/poke" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{request.session.userid}}" name="poker_id">
+                            <input type="hidden" value="{{user.id}}" name="pokee_id">
+                            <input type="submit" value="poke">
+                          </form>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <form action="/logout" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{request.session.userid}}" name="poker_id">
+                <input type="submit" value="LOG OUT">
+              </form>
+            </body>
+          </html>

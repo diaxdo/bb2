@@ -1,0 +1,39 @@
+body{
+  font-family: helvetica;
+  background-color: rgb(217, 224, 255);
+}
+
+.messages{
+  color: red;
+}
+
+.reg{
+  background-color: rgb(236, 201, 255);
+  width: 50%;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
+}
+.log{
+  background-color: rgb(152, 143, 255);
+  width: 50%;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
+}
+input{
+  margin: 5px;
+}
+
+label{
+  font-size: 90%;
+  font-weight: lighter;
+  padding-left: 10px;
+}
+
+input[type=submit]{
+  font-size: 15px;
+  background-color: white;
+  border-radius: 15px;
+  font-weight: lighter;
+  border: 2px #fff680;
+  box-shadow: 1px 1px 1px grey;
+}
